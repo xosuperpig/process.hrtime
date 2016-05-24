@@ -1,8 +1,8 @@
 var OPTION = {
-	's': [1, 10e-9],
-	'ms': [10e3, 10e-6],
-	'us': [10e6, 10e-3],
-	'ns': [10e9, 1]
+	's': [1, 1e-9],
+	'ms': [1e3, 1e-6],
+	'us': [1e6, 1e-3],
+	'ns': [1e9, 1]
 };
 
 module.exports = function (hrtime, option) {
