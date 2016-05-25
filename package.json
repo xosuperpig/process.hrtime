@@ -1,12 +1,15 @@
 {
-  "name": "@tencent/process.hrtime",
+  "name": "process.hrtime",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
   },
-  "repository": "https://github.com/xosuperpig/process.hrtime.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xosuperpig/process.hrtime.git"
+  },
   "author": "",
   "license": "ISC"
 }
