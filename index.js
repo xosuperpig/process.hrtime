@@ -6,13 +6,9 @@ var OPTION = {
 };
 
 module.exports = function (hrtime, option) {
-    if (hrtime) {
-	    var time = process.hrtime(hrtime);
-	    if (option && option in OPTION) {
-		    time = time[0] * OPTION[option][0] + time[1] * OPTION[option][1]
-	    }
-	    return time
-    } else {
-	    return process.hrtime();
-    }
+	var time = hrtime ? process.hrtime(hrtime) : process.hrtime();
+	if (option && option in OPTION) {
+		time = time[0] * OPTION[option][0] + time[1] * OPTION[option][1]
+	}
+	return time
 };

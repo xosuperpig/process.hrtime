@@ -3,6 +3,10 @@ var hrtime = require(".");
 var start = hrtime();
 
 console.log(hrtime());
+console.log(hrtime(null, 's') + ' s');
+console.log(hrtime(null, 'ms') + ' ms');
+console.log(hrtime(null, 'us') + ' us');
+console.log(hrtime(null, 'ns') + ' ns');
 setTimeout(function () {
 	console.log(hrtime(start));
 	console.log(hrtime(start, 's') + ' s');
