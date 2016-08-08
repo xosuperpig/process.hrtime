@@ -11,5 +11,8 @@
     "url": "https://github.com/xosuperpig/process.hrtime.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mock-require": "^1.3.0"
+  }
 }

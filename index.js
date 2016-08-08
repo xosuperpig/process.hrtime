@@ -1,19 +1,6 @@
-if (typeof process == 'undefined') {
 
-    module.exports = function (date, option) {
-        var time = date ? (new Date).getTime() - date : (new Date).getTime();
-        switch (option) {
-            case 's':
-                return Math.floor(time / 1000);
-            case 'us':
-                return time * 1000;
-            case 'ns':
-                return time * 1000000;
-            default:
-                return time
-        }
-    };
-} else {
+if (typeof process != 'undefined' && process.hrtime) {
+
     var OPTION = {
         's': [1, 1e-9],
         'ms': [1e3, 1e-6],
@@ -26,5 +13,19 @@ if (typeof process == 'undefined') {
             time = time[0] * OPTION[option][0] + time[1] * OPTION[option][1]
         }
         return time
+    };
+} else {
+    module.exports = function (date, option) {
+        var time = date ? (new Date).getTime() - date : (new Date).getTime();
+        switch (option) {
+            case 's':
+                return time / 1000;
+            case 'us':
+                return time * 1000;
+            case 'ns':
+                return time * 1000000;
+            default:
+                return time
+        }
     };
 }

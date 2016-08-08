@@ -1,4 +1,4 @@
-'use strict';
+process.hrtime = null;
 var hrtime = require(".");
 var start = hrtime();
 
