@@ -1,4 +1,4 @@
-
+var debug = require("debug")('process.hrtime');
 if (typeof process != 'undefined' && process.hrtime) {
 
     var OPTION = {
@@ -8,11 +8,16 @@ if (typeof process != 'undefined' && process.hrtime) {
         'ns': [1e9, 1]
     };
     module.exports = function (hrtime, option) {
-        var time = hrtime ? process.hrtime(hrtime) : process.hrtime();
-        if (option && option in OPTION) {
-            time = time[0] * OPTION[option][0] + time[1] * OPTION[option][1]
+        try {
+            var time = hrtime ? process.hrtime(hrtime) : process.hrtime();
+            if (option && option in OPTION) {
+                time = time[0] * OPTION[option][0] + time[1] * OPTION[option][1]
+            }
+            return time
+        } catch(e) {
+            debug(e.message);
+            return 0
         }
-        return time
     };
 } else {
     module.exports = function (date, option) {
